@@ -1,0 +1,17 @@
+<div class="body-modal">
+  <div class="d-flex mt-3 ">
+    <div class="col-8 d-flex justify-content-center">
+      <h6>{{data.title}}</h6> <!-- mat-dialog-title-->
+    </div>
+    <div class="col-4 d-flex justify-content-center ">
+      <mat-icon [style.color]="getIconColor()" [style.fontSize.px]="20">{{getIcon()}}</mat-icon>
+    </div>
+  </div>
+  <div mat-dialog-content>
+    <p class="text-center">{{data.message}}</p>
+  
+  </div>
+  <div mat-dialog-actions class="d-flex justify-content-around">
+    <button mat-button (click)="onClose()">Cerrar</button>
+  </div>
+</div>

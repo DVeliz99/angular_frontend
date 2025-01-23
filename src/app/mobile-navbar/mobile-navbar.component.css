@@ -1,0 +1,93 @@
+.mobile_navbar {
+  background-color: #29d2e4;
+
+}
+
+.flexible-mobile-navbar {
+  display: flex;
+  margin-top: 87px;
+  margin-left: 0px;
+  margin-right: 0px;
+  transition: 0.5s ease;
+
+}
+
+.nav-item a {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+picture {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+#hidden-option a {
+  color: #89c4ff;
+
+}
+
+.flexible-list li {
+  background-color: #29d2e4;
+  
+}
+
+.flex-link a {
+  color: white;
+  
+}
+
+#hidden-option {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #29d2e4;
+  border-bottom-left-radius: 15%;
+
+}
+
+
+/*Efectos hover*/
+
+#hidden-option:hover {
+  background-color: #89c4ff;
+
+}
+
+.picture:hover {
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-bottom-left-radius: 10px;
+  background-color: #89c4ff;
+  transform: scale(1.1);
+}
+
+.nav-item a:hover {
+  transform: scale(1.1);
+  background-color: #89c4ff;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+
+}
+
+.flexible-list li:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #89c4ff;
+  border-radius: 10px;
+  border: 2px solid black;
+
+}
+
+#hidden-option a:hover {
+  color: rgb(255, 255, 255);
+
+}
+
+.nav-item a:hover {
+  color: rgb(255, 255, 255);
+
+}
+

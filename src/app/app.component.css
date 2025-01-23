@@ -1,0 +1,32 @@
+/*No mostrar el mobile navbar en pantallas grandes*/
+app-mobile-navbar{display: none;}
+
+#space_mobile{
+   display:none;
+}
+
+
+
+@media (max-width: 998px) {
+
+   app-navbar{
+      display: none;
+   }
+
+   .space{
+      display: none;
+   }
+
+   #space_mobile{
+      display: flex;
+      height: 80px;
+      width: 100%;
+      border: black;
+      background-color: black;
+   }
+
+   app-mobile-navbar{
+      display: flex;
+   }
+
+}

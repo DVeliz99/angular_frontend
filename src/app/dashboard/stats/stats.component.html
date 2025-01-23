@@ -1,0 +1,21 @@
+<div class="container-fluid py-5 profile-summary"> <!-- @fadeIn-->
+    <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class=" col-lg-10 mb-2 mb-lg-0 ">
+            <div class="card mb-3 border rounded " style="border-radius: .5rem;">
+                <div class="row g-0 bg-white">
+                    <div class="stats col-md-12">
+                        <div class="card-body p-4">
+                            <div class=" text-center mt-4 w-100">Grafico que representa el rendimiendo entre
+                                {{userData?.app_start_date}} - {{userData?.last_login_date}}
+                            </div>
+
+                            <div>
+                                <app-total-graphic></app-total-graphic>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

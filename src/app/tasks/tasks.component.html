@@ -1,0 +1,36 @@
+<div class="tasks float-start col-xl-9 col-lg-9 col-md-12 col-sm-12 h-auto bg-light overflow-x-hidden">
+    <!-- Fila para los dos primeros subcontenedores -->
+    <div class="row">
+        <div class="col-lg-6 col-md-12 mb-3 ">
+            <div class="subcontenedor-1 bg-light  h-100 d-flex align-content-between justify-content-center ">
+                <div class="d-flex justify-content-center flex-column">
+                    <div>
+                        <h2 class="text-center w-100"> Mostrar tareas entre {{filter?.startDate}}-{{filter?.endDate}}
+                        </h2>
+                    </div>
+                    <div>
+                        <h3 class="text-center  w-100"> Estado seleccionado: {{filter?.estado}} </h3>
+                    </div>
+                    <div>
+                        <h3 class="text-center  w-100"> Categoría seleccionada: {{filter?.categoria}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 mb-3">
+            <div class="subcontenedor-2 bg-light p-3 h-100">
+                <app-filter></app-filter>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Fila para el tercer subcontenedor -->
+    <div class="row">
+        <div class="col-12">
+            <div class="subcontenedor-3 bg-light p-3">
+                <app-recent-tasks></app-recent-tasks>
+            </div>
+        </div>
+    </div>
+</div>

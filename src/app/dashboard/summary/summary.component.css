@@ -1,0 +1,32 @@
+#avatar{
+    height: 100px;
+
+}
+
+.card,
+.title img {
+    transition: all 0.3s ease;
+
+}
+
+/*Efectos hover*/
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.user_name:hover {
+    transform: scale(1.05);
+    color: black;
+    font-weight: bold;
+
+}
+
+.grafica-info:hover,
+.performance-chart:hover {
+    border-color: #8EC6C5;
+    background-color: #F5F5F5;
+
+}

@@ -1,0 +1,12 @@
+<!-- total-graphic.component.html -->
+<div *ngIf="hasData; else noDataTemplate">
+  <p-chart #chart type="pie" [data]="data" [options]="options"></p-chart>
+</div>
+
+
+<!-- En caso de que no existan datos en el grafico-->
+<ng-template #noDataTemplate>
+  <div class="no-data-message text-center">
+    No hay datos disponibles para mostrar en el gráfico. Por favor, selecciona filtros diferentes o revisa más tarde.
+  </div>
+</ng-template>

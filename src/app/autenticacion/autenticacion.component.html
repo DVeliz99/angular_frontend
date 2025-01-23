@@ -1,0 +1,77 @@
+<div class="row d-flex float-left m-0 p-0" style="height: 100vh;">
+
+    <!-- Mostrar technologías usadas en la apliación-->
+    <div id="none" class=" col-xl-6 col-lg-6 col-md-6 col-sm-12 sub-divs border border-black ">
+
+        <!-- Mostrar technologías usadas en la apliación-->
+        <div class="d-flex flex-column justify-content-around" style="height: 100vh;">
+
+            <div class="frontend border">
+                <h2 class="w-100 text-center">Frontend</h2>
+                <div class="m-4">
+                    <img src="/technologies/angular_icon.png" alt="Angular JS" height="120" class="icon ms-4 me-4">
+                    <img src="/technologies/typescript_icon.jpg" alt="TypeScript" height="120" class="icon me-4">
+                    <img src="/technologies/javascript_icon.png" alt="JavaScript" height="120" class="icon me-4">
+                    <img src="/technologies/html5_icon.png" alt="HTML" height="120" class="icon me-4">
+                    <img src="/technologies/css3_icon.png" alt="CSS" height="120" class="icon  ms-4 me-4">
+                    <img src="/technologies/bootstrap_icon.webp" alt="Bootstrap" height="120" class="icon me-4">
+                </div>
+            </div>
+
+            <div class="backend border">
+                <h2 class="w-100 text-center">Backend</h2>
+                <div class="d-flex justify-content-center  ">
+                    <img src="/technologies/php_icon.png" alt="PHP" height="120" class="icon m-2">
+                </div>
+            </div>
+
+            <div class="data-base border">
+                <h2 class="title text-center">Base de Datos</h2>
+                <div class="d-flex justify-content-center">
+                    <img src="/technologies/mysql_icon.png" alt="MySQL" height="120" class="icon m-2">
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!--- formularios para login y registro-->
+    <div id="formularios "
+        class="d-flex justify-content-center flex-column   col-xl-6 col-lg-6 col-md-12 col-sm-12 sub-divs p-0">
+
+        <div id="carouselExampleIndicators" class="carousel slide  m-0 p-0 col-12 h-100">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner  w-100 h-100 ">
+                <div class="carousel-item active h-100  ">
+                    <div class=" h-100  ">
+                        <app-login-form></app-login-form>
+                    </div>
+                </div>
+                <div class="carousel-item  h-100  ">
+                    <div class=" h-100  ">
+                        <app-register-form></app-register-form>
+                    </div>
+
+                </div>
+            </div>
+            <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Fin formularios-->
+</div>

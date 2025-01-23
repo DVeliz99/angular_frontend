@@ -1,0 +1,71 @@
+.sidebar {
+    background-color: #29d2e4;
+  
+    position:fixed;
+}
+
+
+.nav-item a {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+picture {
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+.active{
+    background-color: #9ad8e5;
+    border-bottom: 2px solid blue;
+    border-right: 2px solid blue;
+    border-bottom-left-radius: 10px;
+    border-top: 2px solid  blue;
+    border-bottom-right-radius: 10px;
+
+}
+
+.active .nav-link p{
+    color:  #ffffff;
+
+}
+
+.nav-item .nav-link p{
+    color: black;
+
+}
+
+
+/*efectos hover */
+
+.picture:hover {
+    border-right: 5px;
+    border-bottom: 5px;
+    border: solid black;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #89c4ff;
+    transform: scale(1.04);
+
+}
+
+.nav-item a:hover {
+    transform: scale(1.03);
+    background-color: #89c4ff;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom-left-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+
+}
+
+
+
+
+
+.nav-item a:hover {
+    color: rgb(255, 255, 255);
+
+}

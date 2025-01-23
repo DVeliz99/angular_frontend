@@ -1,0 +1,72 @@
+<div class="container-fluid py-5 profile-summary"> <!-- @fadeIn-->
+    <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class=" col-lg-10 mb-2 mb-lg-0 ">
+            <div class="card mb-3 border rounded " style="border-radius: .5rem;">
+                <div class="row g-0 bg-white">
+                    <div class=" col-md-3 gradient-custom text-center text-white  d-flex justify-content-center"
+                        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                        <div class=" d-flex flex-column col-6  align-items-center mt-5">
+                            <div class="my-4">
+                                <img id="avatar" *ngIf="userData && avatarUrl" [src]="avatarUrl" alt="Avatar"
+                                    class="m-0 object-fit-cover" style="height: 60px; width: 60px;" />
+                                <div class="file-upload-wrapper">
+                                    <!-- Acepta formatos en especifico-->
+                                    <input type="file" class="form-control border border-black" id="newAvatar"
+                                        accept=".jpg,.jpeg,.png,.gif" style="display: none;"
+                                        (change)="formatValidator($event)">
+                                    <img src="/other_icons/camera_icon.png" alt="changePhoto" height="20"
+                                        class="border border-black m-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Haz clic para cambiar la foto" (click)="triggerFileInput()">
+                                </div>
+                            </div>
+                            <!-- Condicional para asegurarnos de userData este disponible antes de acceder a el -->
+                            <h5 class="user_name text-muted" *ngIf="userData">{{
+                                userData.user_name }}</h5>
+                        </div>
+                    </div>
+                    <div class="  col-md-9">
+                        <div class="card-body p-4">
+                            <div class="d-flex flex-row title ">
+                                <img height="25" src="/summary_icons/user.png" alt="imagen">
+
+                                <h6 class="ms-3" *ngIf="userData">Información de {{
+                                    userData.user_name}}</h6>
+                            </div>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>> Nombre del usuario:</h6>
+                                    <p class="text-muted" *ngIf="userData ">{{userData.user_name}}
+                                    </p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>> Correo:</h6>
+                                    <p class="text-muted" *ngIf="userData">{{userData.email}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row title ">
+                                <img height="30" src="/summary_icons/calendar.jpg" alt="imagen">
+                                <h6 class="ms-3">Información de la cuenta</h6>
+                            </div>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>> Fecha de inicio:</h6>
+                                    <p class="text-muted" *ngIf="userData">
+                                        {{userData.app_start_date}}</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>> Ultimo inicio de sesión:</h6>
+                                    <p class="text-muted" *ngIf="userData">{{userData.
+                                        last_login_date
+                                        }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

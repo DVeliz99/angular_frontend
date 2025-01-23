@@ -1,0 +1,8 @@
+/*En pantallas de movil*/
+@media (max-width: 767px) {
+    form {
+        width: 75%;
+    }
+}
+
+

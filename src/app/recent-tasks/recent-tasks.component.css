@@ -1,0 +1,28 @@
+thead tr th {
+   background-color: #3c85cf;
+   color: white;
+}
+
+tbody tr td {
+   background-color: #dff3f6;
+}
+
+.table {
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+td a:hover{
+   cursor: pointer;
+
+}
+
+/*En el movil*/
+@media (max-width: 767px) {
+
+   .table {
+      font-size: small;
+   }
+
+}
+

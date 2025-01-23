@@ -1,0 +1,109 @@
+<div id="to_do" class=" d-flex justify-content-center align-items-center    ">
+  <div [formGroup]="taskForm" class="w-75 form-to_do mt-4 mb-2  border border-black rounded ">
+    <div class="form-group">
+      <label for="taskName">Nombre de la Tarea</label>
+      <input type="text" id="taskName" formControlName="name" class="form-control"
+        placeholder="Ingresa el nombre de la tarea" [readonly]="readonlyMode">
+    </div>
+
+    <div class="form-group">
+      <label for="taskCategory">Categoría de la Tarea</label>
+      <input type="text" id="taskCategory" formControlName="category" class="form-control"
+        placeholder="Click parar seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
+      <div *ngIf="isCategoryVisible && !nofilters" id="categories "
+        class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative overflow-y-scroll "
+        style="height: 38px;">
+        <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
+        <div *ngIf="!nofilters" class="position-absolute w-100 ">
+          <div type="text" *ngFor="let category of categories"
+            class="text-decoration-none form-control border border-black d-block w-100  " [attr.data-value]="category"
+            (click)="selectCategory(category)" (click)="toggleVisibilityCategory()" style="height: 38px;">
+            {{category}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <label for="taskStatus">Estado de la Tarea</label>
+
+      <input *ngIf="!isEditing ||isEditing ||(isEditing && restrictFilter)" id="taskStatus" type="text"
+        class="form-control overflow-auto" formControlName="status" placeholder="Click parar seleccionar estado"
+        readonly (click)="toggleVisibility() ">
+      <!-- Al crear tarea solo se muestra un estado == pendiente-->
+      <div *ngIf="isVisible && !nofilters " id="status "
+        class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative">
+        <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
+        <div *ngIf="!nofilters" class="position-absolute w-100">
+          <div type="text" *ngFor="let state of statusArray"
+            class="text-decoration-none form-control border border-black d-block w-100 " [attr.data-value]="state"
+            (click)="selectState(state)" (click)="toggleVisibility()"> {{state}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="startDate">Fecha de Inicio</label>
+      <input type="date" id="startDate" formControlName="startDate" class="form-control" [readonly]="readonlyMode">
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">Fecha de Entrega</label>
+      <input type="date" id="endDate" formControlName="endDate" class="form-control" [readonly]="readonlyMode">
+    </div>
+
+    <!-- Botones dinamicos-->
+
+    <div class="d-flex justify-content-around">
+      <a id="crearTarea" *ngIf="!isEditing" type="submit" class="btn btn-outline-secondary mt-3 mb-2 "
+        (click)="onCreateTask()">
+        <div>
+          <img src="/other_icons/create_icon.png" alt="crear" height="40">
+          <h6>Crear tarea</h6>
+        </div>
+      </a>
+
+      <a id="editar" *ngIf="isEditing && !restrictFilter" type="submit" class="btn btn-outline-secondary mt-3 mb-2 "
+        (click)="onEdit()" data-bs-toggle="tooltip" data-bs-placement="top" title="Habilitar Modo Edición">
+        <div>
+          <img src="/other_icons/edit_icon.png" alt="editar" height="40">
+          <h6>Editar</h6>
+        </div>
+      </a>
+
+      <a *ngIf="isEditing && !restrictFilter" class="btn btn-outline-danger mt-3 mb-2" (click)="openDeleteWarning()">
+        <div>
+          <img src="/other_icons/delete_icon.png" alt="eliminar" height="40">
+          <h6>Eliminar</h6>
+        </div>
+      </a>
+
+
+
+      <a *ngIf="isEditing && restrictFilter" class="btn btn-outline-success  mt-3 mb-2 icon"
+        (click)="openEditWarning()">
+        <div>
+          <img src="/other_icons/update_icon.png" alt="">
+          <h6>Actualizar</h6>
+        </div>
+      </a>
+
+      <a *ngIf="isEditing" (click)="onCancel()" type="submit" class="btn mt-3 mb-2 btn-outline-warning icon">
+        <div>
+          <img src="/other_icons/x_icon.png" alt="cancelar" height="40">
+          <h6>Cancelar</h6>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Fin de botones dinamicos-->
+
+  </div>
+
+  <!-- Fin de formulario-->
+
+</div>

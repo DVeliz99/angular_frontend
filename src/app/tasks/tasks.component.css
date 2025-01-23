@@ -1,0 +1,49 @@
+#dropdown input {
+    margin-bottom: 3px;
+
+}
+
+.hidden {
+    display: none;
+
+}
+
+.visible {
+    display: flex;
+
+}
+
+#hidden-options {
+    margin-bottom: 3px;
+    
+}
+
+@media (max-width: 998px) {
+
+    h2 {
+        font-size: medium;
+    }
+
+    h3 {
+        font-size: medium;
+
+    }
+
+    form {
+        font-size: small;
+    }
+
+    #statusSelect {
+        width: 150px;
+    }
+
+    #option {
+        width: 200px;
+        font-size: small;
+    }
+
+    .tasks{
+        margin-top: 30px;
+    }
+
+}

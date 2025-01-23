@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center  h-100 p-0">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit() "
+        class="col-xl-7 col-lg-7 col-md-8 align-content-center  m-0 h-100 ">
+
+        <h1 class="w-100 d-flex justify-content-center">Inicio de sesión</h1>
+
+        <!-- Nombre de usuario -->
+        <label for="user_name" class="form-label">Nombre de usuario:</label>
+        <input type="text" id="user_name" class="form-control" formControlName="user_name">
+
+        <!-- Mensaje si el campo está vacío -->
+        <div *ngIf="loginForm.get('user_name')?.touched && loginForm.get('user_name')?.hasError('required')">
+            <small class="text-danger">Ingresa un nombre de usuario.</small>
+        </div>
+
+        <!-- Mensaje si el campo contiene caracteres especiales -->
+        <div *ngIf="loginForm.get('user_name')?.hasError('pattern')">
+            <small class="text-danger">Ingresa un nombre de usuario válido (sin caracteres prohibidos).</small>
+        </div>
+
+        <!-- Contraseña -->
+        <label for="password" class="form-label">Contraseña:</label>
+        <input [type]="hidePassword ? 'password' : 'text'" id="password" class="form-control"
+            formControlName="password">
+        <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+            <i class="fa" [ngClass]="hidePassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+        </button>
+        <!-- Mostrar el error si se ingresan caracteres especiales -->
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+            <small class="text-danger">Ingresa una contraseña valida.</small>
+        </div>
+
+        <!-- Mensaje si el campo contiene caracteres especiales(evitar inyecciones SQL) -->
+        <div *ngIf="loginForm.get('user_name')?.hasError('pattern')">
+            <small class="text-danger">Contraseña con caracteres invalidos.</small>
+        </div>
+
+        <br>
+
+        <!-- Boton para iniciar cesión-->
+        <div class="col-auto d-flex justify-content-center ">
+            <button type="submit" class="btn btn-primary mb-3" [disabled]="!loginForm.valid">Iniciar sesión</button>
+        </div>
+
+    </form>
+</div>

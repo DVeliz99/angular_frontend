@@ -1,0 +1,30 @@
+<div class="table-responsive rounded overflow-x-scroll">
+    <table class="table  ">
+        <thead>
+            <tr>
+                <th scope="col">Nombre de la Tarea</th>
+                <th scope="col">Categoría de la Tarea</th>
+                <th scope="col">Estado de la Tarea</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Fecha de Entrega</th>
+                <th scope="col">Fecha de Expiración</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- En la misma respuesta debo de obtener el id de la tarea-->
+             <!-- Crear servicio tarea clickeada para guardar la informacion de la tarea clickeada -->
+            <tr class="fila" *ngFor="let task of tasks" (mouseenter)="onMouseEnter($event.target)"
+                (mouseleave)="onMouseLeave($event.target)">
+                <td> <a (click)="getTaskDetail(task.id_task)" class="text-decoration-none">{{ task.task_name }}</a></td>
+                <td>{{ task.category}}</td>
+                <td> <span class="fa"
+                        [ngClass]="{ 'fa-clock': task.status === 'Pendiente', 'fa-check': task.status === 'Completada','fa-times': task.status === 'Expirada' }"></span>
+                    {{ task.status }} </td>
+                <td>{{ task.fecha_inicio_tarea }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{task.fecha_expiracion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,30 @@
+/*estilos para titulos*/
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #29d2e4;
+}
+
+p {
+    display: inline;
+    color: #89c4ff;
+}
+
+h2 {
+    color: 89c4ff;
+}
+
+h3 {
+    color: #29d2e4;
+}
+
+
+.cdk-global-overlay-wrapper{
+    max-height: 100vh;
+}

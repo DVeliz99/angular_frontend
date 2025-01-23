@@ -1,0 +1,27 @@
+.card-header {
+  background-color: #3c85cf;
+}
+
+.card-body {
+  background-color: #dff3f6;
+}
+
+/*En el movil*/
+@media (max-width: 767px) {
+
+  .card {
+    font-size: small;
+  }
+
+  .card-title {
+    font-size: large;
+
+  }
+}
+
+/*Efectos hover*/
+
+.card:hover {
+  border-color: #8EC6C5;
+  background-color: #F5F5F5
+}

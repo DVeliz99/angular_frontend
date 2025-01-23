@@ -1,0 +1,20 @@
+<div id="modal">
+  <div class="d-flex mt-3">
+    <div class="col-8 d-flex justify-content-center" > 
+      <h5 >{{data.title}}</h5> <!-- mat-dialog-title-->
+    </div>
+    <div class="col-4 d-flex justify-content-center ">
+      <mat-icon [style.color]="getIconColor()" [style.fontSize.px]="20">{{getIcon()}}</mat-icon>
+    </div>
+  </div>
+  <div mat-dialog-content class="">
+    <p class="text-center">{{data.message}}</p>
+  
+  </div>
+  <div mat-dialog-actions class="d-flex justify-content-around">
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button (click)="onYesClick()">Aceptar</button>
+  </div>
+</div>
+
+<!-- Editar los modals -->

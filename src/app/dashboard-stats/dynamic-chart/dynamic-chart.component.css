@@ -1,0 +1,17 @@
+.title:hover, .chart:hover{
+  border-color: #8EC6C5;
+  background-color: #F5F5F5
+ }
+
+
+ /*En el movil*/
+
+@media (max-width: 767px) {
+
+   h2{
+    font-size: large;
+   }
+
+ }
+
+

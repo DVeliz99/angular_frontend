@@ -1,0 +1,16 @@
+<!-- Contenido principal-->
+<div>
+    <app-mobile-navbar *ngIf="isAuthenticated"></app-mobile-navbar>
+    <app-navbar *ngIf="isAuthenticated"></app-navbar>
+
+    <div *ngIf="isAuthenticated" id="space_mobile" class=" space_mobile float-start">
+
+    </div>
+
+    <div *ngIf="isAuthenticated" class=" space  col-3  float-start " style="height: 100vh;">
+
+    </div>
+
+    <!-- Enrutamiento-->
+    <router-outlet></router-outlet>
+</div>

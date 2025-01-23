@@ -1,0 +1,53 @@
+*{
+    font-weight: bold;
+}
+
+.row{
+height: 100vh;
+object-fit: cover;
+background-color: #89c4ff;
+}
+
+
+.icon{
+    background-color: #89c4ff; 
+}
+
+.category{
+    background-color: #89c4ff;
+}
+
+/* Cambiar color de los indicadores cuando están inactivos */
+.carousel-indicators button {
+    background-color: #201e1b;
+}
+
+/* Cambiar color del indicador activo */
+.carousel-indicators .active {
+    background-color: black;
+}
+
+
+/* Cambiar color de las flechas */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: hsla(238, 100%, 51%, 0.814); 
+}
+
+/*Para el movil*/
+
+@media (max-width: 998px) {
+
+    .row{
+        height: auto;
+        
+        
+    }
+
+    #none{
+        display: none;
+        
+    }
+    
+}
+
+

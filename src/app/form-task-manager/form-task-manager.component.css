@@ -1,0 +1,51 @@
+button {
+    background-color: #29d2e4;
+    color: white;
+
+}
+
+#to_do {
+    margin-top: 0px;
+    padding: 10px;
+
+}
+
+label {
+    transition: width 0.3s ease;
+
+}
+
+.icon img {
+    transition: transform 0.3s ease-in-out;
+
+}
+
+div h6 {
+    font-weight: bold;
+
+}
+
+/*Efectos hover*/
+
+.form-to_do:hover {
+    background-color: #29d2e4;
+    border-radius: 10px;
+
+}
+
+label:hover {
+    color: white;
+
+}
+
+.icon img :hover {
+    width: 102%;
+    height: 102%;
+
+}
+
+#crearTarea:hover,
+#editar:hover {
+    background-color: #A6AEBF;
+
+}
