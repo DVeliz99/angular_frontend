@@ -7,8 +7,11 @@ WORKDIR /app
 # Copia los archivos necesarios del proyecto
 COPY package.json package-lock.json ./
 
-# Instala las dependencias utilizando npm
-RUN npm install --verbose
+# Instala las dependencias
+RUN npm install -g npm@latest
+
+# Muestra los últimos 20 registros de la instalación
+RUN tail -n 20 /root/.npm/_logs/*.log
 
 # Copia el resto de los archivos del proyecto
 COPY . .
