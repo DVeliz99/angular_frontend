@@ -1,5 +1,5 @@
 # Usamos la imagen oficial de Node.js v20
-FROM node:20-alpine
+FROM node:20-alpine as builder
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
@@ -11,19 +11,28 @@ RUN npm install -g @angular/cli
 COPY package.json package-lock.json ./
 
 # Instala las dependencias
-RUN npm install --legacy-peer-deps --verbose
+RUN npm ci
 
 # Copiar el resto del proyecto al contenedor
 COPY . .
 
-# construimos la app para producción
-RUN ng build --configuration production
+# Construimos la app para producción con SSR
+RUN npm run build:ssr
 
-# Instalamos un servidor estático (serve)
-RUN npm install -g serve
+# Etapa de producción
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copiamos los archivos necesarios de la etapa de construcción
+COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/package.json /app/package.json
+
+# Instalamos solo las dependencias de producción
+RUN npm ci --only=production
 
 # Exponer el puerto que usará la aplicación
-EXPOSE 80
+EXPOSE 4000
 
-# Comando para iniciar el servidor estático, asegurándonos de que apunta a la carpeta de salida correcta
-CMD ["serve", "-s", "dist/task_manager", "-l", "80"]
+# Comando para iniciar el servidor SSR
+CMD ["node", "dist/task_manager/server/main.js"]
