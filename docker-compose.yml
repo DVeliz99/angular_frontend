@@ -4,6 +4,6 @@ services:
   app:
     image: todolist-image
     ports:
-      - "4300:4200"
+      - "80:80"
     environment:
       - NODE_ENV=development
