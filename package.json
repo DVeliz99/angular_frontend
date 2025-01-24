@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "build:ssr": "ng build && ng run task_manager:server",
+    "serve:ssr": "node dist/task_manager/server/main.js",
     "serve:ssr:task_manager": "node dist/task_manager/server/server.mjs"
   },
   "private": true,

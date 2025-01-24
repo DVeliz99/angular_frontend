@@ -10,8 +10,8 @@ RUN npm install -g @angular/cli
 # Copia los archivos de configuración y dependencias al contenedor
 COPY package.json package-lock.json ./
 
-# Instala las dependencias
-RUN npm ci
+# Instala las dependencias con --legacy-peer-deps para evitar conflictos
+RUN npm ci --legacy-peer-deps
 
 # Copiar el resto del proyecto al contenedor
 COPY . .
@@ -29,10 +29,11 @@ COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/package.json /app/package.json
 
 # Instalamos solo las dependencias de producción
-RUN npm ci --only=production
+RUN npm ci --only=production --legacy-peer-deps
 
 # Exponer el puerto que usará la aplicación
 EXPOSE 4000
 
 # Comando para iniciar el servidor SSR
-CMD ["node", "dist/task_manager/server/main.js"]
+CMD ["npm", "run", "serve:ssr"]
+
