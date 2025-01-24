@@ -1,38 +1,26 @@
-# Usa una imagen de Node.js como base
-FROM node:18-alpine AS build
+# Usamos la imagen oficial de Node.js v20
+FROM node:20-alpine
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia los archivos necesarios del proyecto
+# Instalar Angular CLI globalmente
+RUN npm install -g @angular/cli
+
+# Copia los archivos de configuración y dependencias al contenedor
 COPY package.json package-lock.json ./
 
 # Instala las dependencias
-RUN npm install -g npm@latest
+RUN npm install --legacy-peer-deps --verbose
 
-# Muestra los últimos 20 registros de la instalación
+# Mostrar los últimos 20 registros de la instalación (opcional para depuración)
 RUN tail -n 20 /root/.npm/_logs/*.log
 
-# Copia el resto de los archivos del proyecto
+# Copiar el resto del proyecto al contenedor
 COPY . .
 
-# Construye la aplicación (incluye el cliente y el servidor para SSR)
-RUN npm run build:ssr
+# Exponer el puerto que usará la aplicación
+EXPOSE 4200
 
-# Configura una imagen final más ligera para la producción
-FROM node:18-alpine
-
-WORKDIR /app
-
-# Copia solo los archivos necesarios desde la fase de build
-COPY --from=build /app/dist /app/dist
-COPY --from=build /app/package.json /app/package-lock.json /app/
-
-# Instala las dependencias de producción
-RUN npm install --only=production
-
-# Expone el puerto 4000 (o el puerto que tu servidor SSR usa)
-EXPOSE 4000
-
-# Comando para ejecutar el servidor SSR
-CMD ["node", "dist/server/main.js"]
+# Comando para iniciar el servidor
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]

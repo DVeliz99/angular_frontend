@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    image: todolist-image
+    ports:
+      - "4300:4200"
+    environment:
+      - NODE_ENV=development
