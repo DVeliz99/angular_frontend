@@ -10,8 +10,8 @@ import { environment } from '../../environment/environment';
 })
 export class FilterService {
   /*Propiedades */
-  private apiUrlCategorias = `${environment.apiUrl}/filter/get_category.php`;
-  private apiUrlEstados = `${environment.apiUrl}/filter/get_state.php`;
+  private apiUrlCategorias = `${environment.apiUrl}filter/get_category/`;
+  private apiUrlEstados = `${environment.apiUrl}filter/get_state/`;
 
   constructor(private http: HttpClient) { }
 

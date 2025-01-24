@@ -45,14 +45,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     //Obtencion de datos por el padre para enviarlos al servicio del perfil
-    this.parent_userDataSubscription = this.http.get<any>(`${environment.apiUrl}/profile/profile.php?user_id=${usuario_id}`).subscribe(response => {
+    this.parent_userDataSubscription = this.http.get<any>(`${environment.apiUrl}profile/profile`,{ params: { user_id: usuario_id } }).subscribe(response => {
       if (response.status === 'success') {
         this.userData = response.user;
         // this.username=response.user.user_name;
         // console.log('el nombre del usuario en la respuesta',this.username);
         // console.log('Respuesta desde profile.php obtenida en dashboard', this.userData);
         this.profileDataService.changeProfileUserData(this.userData);
-        // console.log('Informacion del usuario enviada desde dashboard al ProfileDataService', this.userData);
+        //  console.log('Informacion del usuario enviada desde dashboard al ProfileDataService', this.userData);
 
       } else {
         // console.error('Error en la respuesta de profile.php en dashboard:', response.message);

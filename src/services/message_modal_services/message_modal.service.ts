@@ -16,12 +16,12 @@ export class MessageModalService {
 
     changeMessage(message: modalMessageInterface) {
         this.MessageData.next(message);
-        console.log('Mensaje actualizado en  MessageModalService:', message);
+        // console.log('Mensaje actualizado en  MessageModalService:', message);
     }
 
     resetMessage():void{
         this.MessageData.next(null);
-        console.log('Mensaje borrado en  MessageModalService');
+        // console.log('Mensaje borrado en  MessageModalService');
     }
 
 }

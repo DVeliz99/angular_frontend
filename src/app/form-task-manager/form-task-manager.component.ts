@@ -14,8 +14,6 @@ import { ConfirmErrorModalComponent } from '../confirm-error-modal/confirm-error
 import { HttpHeaders } from '@angular/common/http';
 import { MessageModalService } from '../../services/message_modal_services/message_modal.service';
 import { modalMessageInterface } from '../../modal_interface/modalMessage_interface';
-import { title } from 'process';
-
 
 declare var bootstrap: any;
 
@@ -267,7 +265,7 @@ export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestro
 
         if (this.isEditing && this.restrictFilter) {
             if (!this.properFilterDate(formData.startDate, formData.endDate)) {
-                this.http.put<any>(`${environment.apiUrl}tasks/edit_task.php`, formData).subscribe(response => {
+                this.http.put<any>(`${environment.apiUrl}tasks/edit_task/`, formData).subscribe(response => {
                     // console.log('Respuesta desde edit_task.php:', response);
                     if (response.status === 'success') {
                         this.successMessage = response.message;
@@ -347,7 +345,7 @@ export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestro
 
         // console.log('El cuerpo en la solicitud http', options.body);
 
-        this.http.delete<any>(`${environment.apiUrl}tasks/delete_task.php`, options).subscribe({
+        this.http.delete<any>(`${environment.apiUrl}tasks/delete_task/`, options).subscribe({
             next: (response) => {
                 if (response && response.status === 'success') {
                     this.successMessage = response.message;
@@ -404,8 +402,10 @@ export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestro
             formData.append('startDate', this.taskForm.value.startDate);
             formData.append('endDate', this.taskForm.value.endDate);
 
-            this.http.post<any>(`${environment.apiUrl}tasks/create_task.php`, formData).subscribe({
+            this.http.post<any>(`${environment.apiUrl}tasks/create_task/`, formData).subscribe({
                 next: (response) => {
+                    // console.log('Esta es la respuesta en form-task-manager',response);
+                    
                     if (response && response.status === 'success') {
                         // console.log('Response', response);
                         this.successMessageCreate = response.message;

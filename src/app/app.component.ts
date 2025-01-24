@@ -14,7 +14,7 @@ import { DataLoginService } from '../services/user_data_service/data_login.servi
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmErrorModalComponent } from './confirm-error-modal/confirm-error-modal.component';
 import { MessageModalService } from '../services/message_modal_services/message_modal.service';
-import { response } from 'express';
+import { HttpParams } from '@angular/common/http';
 
 
 @Component({
@@ -122,9 +122,9 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      const apiUrl = `${environment.apiUrl}/profile/profile.php?user_id=${user.user_id}`;
-
-      this.http.get<any>(apiUrl).pipe(
+      const apiUrl = `${environment.apiUrl}profile/profile`;
+      const params = new HttpParams().set('user_id', user.user_id);
+      this.http.get<any>(apiUrl,{ params }).pipe(
 
         //tap permite añadir la informacion de la respuesta sin interferir con el flujo principal de datos de la solicitud 
         tap(userData => {

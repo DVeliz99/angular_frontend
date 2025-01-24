@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost/mi-proyecto/crud/', // URL base para las operaciones CRUD
+  apiUrl: 'https://web-production-3570.up.railway.app/backend/', 
 };
 
 

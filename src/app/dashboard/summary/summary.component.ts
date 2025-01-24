@@ -99,7 +99,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
 
     if (file) {
       // Validar que el archivo sea una imagen y tenga la extensión correcta
-      console.log(file);
+      // console.log(file);
       const validTypes = ['image/jpeg', 'image/png', 'image/gif']; // Tipos MIME permitidos
       if (!validTypes.includes(file.type)) {
         this.imageErrorMessage = 'Por favor, selecciona un archivo de imagen válido (JPG, JPEG, PNG, GIF).';
@@ -130,7 +130,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
   changePhotoProfile(photo: File): void {
     const formData = this.preprareDatatoSend(this.usuario_id, photo);
 
-    this.http.post<any>(`${environment.apiUrl}profile/changePhoto.php`, formData, {
+    this.http.post<any>(`${environment.apiUrl}profile/changePhoto/`, formData, {
       reportProgress: true,
       observe: 'events'
     })
@@ -174,7 +174,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
   }
 
   getAvatarPath(avatar: string): string {
-    return 'http://localhost/mi-proyecto' + avatar;
+    return 'https://web-production-3570.up.railway.app' + avatar;
 
   }
 

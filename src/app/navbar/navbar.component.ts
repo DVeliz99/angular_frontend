@@ -114,7 +114,7 @@ export class NavbarComponent implements OnInit {
 
 
   getAvatarPath(avatar: string): string {
-    return 'http://localhost/mi-proyecto' + avatar;
+    return 'https://web-production-3570.up.railway.app' + avatar;
 
   }
 

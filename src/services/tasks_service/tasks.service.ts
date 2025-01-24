@@ -98,7 +98,7 @@ export class SharedHttpService {
             params = params.set('status', estado);
         }
 
-        const apiUrl = `${environment.apiUrl}tasks/tasks.php`;
+        const apiUrl = `${environment.apiUrl}tasks/tasks/`;
 
         // console.log('Filtros enviados en la solicitud HTTP desde tasks.service:', params.toString()); //para confirmar que filtros se envian en la peticion http 
         return this.http.get<any>(apiUrl, { params }).pipe(

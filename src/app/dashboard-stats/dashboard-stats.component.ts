@@ -23,7 +23,7 @@ export class DashboardStatsComponent implements OnInit, OnDestroy {
   showCategoryFilter = true;
   filter!: any;
   filteredData!: any;
-  private dashboardApi_1 = `${environment.apiUrl}dashboard/dashboard1.php`; // URL de la API
+  private dashboardApi_1 = `${environment.apiUrl}dashboard/dashboard/`; // URL de la API
   stateSubscription!: Subscription;
   getFiltersSubscription!: Subscription;
   getFilteredDataSubscription!: Subscription;

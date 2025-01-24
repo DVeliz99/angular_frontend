@@ -13,6 +13,6 @@ export class ExpireTasksService {
     validateStatus(user_id: string): Observable<any> {
         // console.log('User_id obtenido en ExpireTasksService desde login component',user_id);
 
-        return this.http.get<any>(`${environment.apiUrl}tasks/expire_tasks.php?user_id=${user_id}`);
+        return this.http.get<any>(`${environment.apiUrl}tasks/expire_tasks/`, { params: { user_id: user_id } });
     }
 }

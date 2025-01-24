@@ -108,7 +108,7 @@ export class RegisterFormComponent {
       const formDataToSend = this.prepareFormData();
 
       // Enviar la solicitud HTTP POST
-      this.http.post<any>(`${environment.apiUrl}registration.php`, formDataToSend, {
+      this.http.post<any>(`${environment.apiUrl}registration/`, formDataToSend, {
         reportProgress: true,
         observe: 'events'
       })

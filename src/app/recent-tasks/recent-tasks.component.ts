@@ -60,7 +60,7 @@ export class RecentTasksComponent implements OnInit, OnDestroy {
   getTaskDetail(taskId: string) {
     // console.log(taskId);
 
-    this.http.get<any>(`${environment.apiUrl}tasks/specificTask.php?taskId=${taskId}`).subscribe(data => {
+    this.http.get<any>(`${environment.apiUrl}tasks/specificTask`, { params: { taskId } }).subscribe(data => {
       this.taskDetail = data;
       // console.log('Informacion obtenida desde specificTask.php', this.taskDetail);
       // this.isEditing = true;

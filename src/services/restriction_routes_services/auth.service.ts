@@ -76,7 +76,7 @@ export class AuthService {
 
   // Iniciar sesión
   login(credentials: { user_name: string, password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}login.php`, credentials).pipe(
+    return this.http.post<any>(`${this.apiUrl}login/`, credentials).pipe(
 
       /*pipe:  permite encadenar operadores para transformar,
        filtrar o manipular los datos emitidos por un Observable. */
@@ -126,7 +126,7 @@ export class AuthService {
 
   // Cerrar sesión
   logout(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}logout.php`).pipe(
+    return this.http.get<any>(`${this.apiUrl}logout/`).pipe(
 
       // En este caso, después de cerrar sesión, actualizamos el estado de autenticación
       tap(response => { //El tap no  modifica el flujo de datos del observable
