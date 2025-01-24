@@ -25,5 +25,5 @@ RUN npm install -g serve
 # Exponer el puerto que usará la aplicación
 EXPOSE 80
 
-# Comando para iniciar el servidor estático
-CMD ["serve", "-s", "dist", "-l", "80"]
+# Comando para iniciar el servidor estático, asegurándonos de que apunta a la carpeta de salida correcta
+CMD ["serve", "-s", "dist/task_manager", "-l", "80"]
