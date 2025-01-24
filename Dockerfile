@@ -13,14 +13,17 @@ COPY package.json package-lock.json ./
 # Instala las dependencias
 RUN npm install --legacy-peer-deps --verbose
 
-# Mostrar los últimos 20 registros de la instalación (opcional para depuración)
-RUN tail -n 20 /root/.npm/_logs/*.log
-
 # Copiar el resto del proyecto al contenedor
 COPY . .
 
-# Exponer el puerto que usará la aplicación
-EXPOSE 4200
+# construimos la app para producción
+RUN ng build --configuration production
 
-# Comando para iniciar el servidor
-CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
+# Instalamos un servidor estático (serve)
+RUN npm install -g serve
+
+# Exponer el puerto que usará la aplicación
+EXPOSE 80
+
+# Comando para iniciar el servidor estático
+CMD ["serve", "-s", "dist", "-l", "80"]
