@@ -26,7 +26,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copiamos los archivos generados en la etapa de construcción
-COPY --from=builder /app/dist/task_manager /app/dist/task_manager
+COPY --from=builder /app/dist/task-manager /app/dist/task-manager
 COPY --from=builder /app/package.json /app/package.json
 
 # se limpia el caché de npm y luego se instala solo las dependencias de producción
