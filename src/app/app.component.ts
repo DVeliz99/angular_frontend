@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   messageModalSubscription!: Subscription;
 
   constructor(
-    private authService: AuthService, private router: Router, @Inject(PLATFORM_ID) private platformID: Object,
+    private authService: AuthService, private router: Router, @Inject(PLATFORM_ID) private platformID: object,
     private cdRef: ChangeDetectorRef, private userDataProfile: ProfileDataService, private http: HttpClient,
     private userLoggedId: DataLoginService, private testModal: MatDialog, private messageModalService: MessageModalService) {
 

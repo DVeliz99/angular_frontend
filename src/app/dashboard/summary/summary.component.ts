@@ -12,7 +12,7 @@ import { HttpEvent } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
 
 
-declare var bootstrap: any;
+declare let bootstrap: any;
 
 @Component({
   selector: 'app-summary',
@@ -31,7 +31,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
   userDataSubscription!: Subscription; // Para manejar la suscripción
   userAvatarSubscription!: Subscription;
   userAvatarchangeSubscription!: Subscription;
-  loginDate: string = '';
+  loginDate = '';
   avatarUrl!: string;
   avatar!: string;
   newAvatar!: File;

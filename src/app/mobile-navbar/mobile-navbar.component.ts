@@ -17,21 +17,21 @@ import { Subscription } from 'rxjs';
 })
 export class MobileNavbarComponent implements OnInit, OnDestroy {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,
+  constructor(@Inject(PLATFORM_ID) private platformId: object,
     private authservice: AuthService,
     private stateService: StateService,
     private userLoggedInService: DataLoginService) { }
 
   /*Propiedades */
-  activeLink: string = '';
+  activeLink = '';
   avatarUrl!: string;
   nombre_usuario!: string;
-  isAuthenticated: boolean = false;
+  isAuthenticated = false;
   private useravatarSusbscription!: Subscription;
   //Variable para controlar visibilidad de sidebar 
   isVisible = false; // Inicialmente no visible
   /*Estilos dinamicos para cada navItem */
-  navItemStyles: { [key: string]: any } = {
+  navItemStyles: Record<string, any> = {
     transition: 'transform 0.3s ease',
   };
 

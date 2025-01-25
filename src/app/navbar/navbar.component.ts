@@ -9,7 +9,7 @@ import { AuthService } from '../../services/restriction_routes_services/auth.ser
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
-import { Inject } from '@angular/core';
+import { Inject, OnDestroy } from '@angular/core';
 import { ProfileDataService } from '../../services/user_data_service/profile.service';
 import { DataLoginService } from '../../services/user_data_service/data_login.service';
 import { Subscription } from 'rxjs';
@@ -23,25 +23,25 @@ import { Subscription } from 'rxjs';
   styleUrl: './navbar.component.css',
 
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   /*Propiedades */
 
   avatarUrl!: string;
-  nombre_usuario: string = '';
+  nombre_usuario = '';
   // Subscripciones 
   authStatusSubscription!: Subscription;
   userAvatarSubscription!: Subscription;
   usernameSubscription!: Subscription;
   //El link clickeado
-  activeLink: string = '';
+  activeLink = '';
   //Variable para controlar visibilidad de sidebar 
   isVisible = false; // Inicialmente visible
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private stateService: StateService,
+  constructor(@Inject(PLATFORM_ID) private platformId: object, private stateService: StateService,
     private authservice: AuthService, private router: Router, private userLoggedInService: DataLoginService) { }
 
-  isAuthenticated: boolean = false;
+  isAuthenticated = false;
 
   //Subscripcion en el navbar
 

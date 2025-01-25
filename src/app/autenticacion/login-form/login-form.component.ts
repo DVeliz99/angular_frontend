@@ -28,9 +28,9 @@ export class LoginFormComponent implements OnInit {
 
   /*Propiedades */
   loginForm!: FormGroup;
-  errorMessage: string = '';
+  errorMessage = '';
   user_id!: any;
-  hidePassword: boolean = true;
+  hidePassword = true;
 
   constructor(
     private formbuilder: FormBuilder,

@@ -9,7 +9,7 @@ import { ShareFiltersTasks } from '../../services/filters_services/share_filters
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmErrorModalComponent } from '../confirm-error-modal/confirm-error-modal.component';
 
-declare var bootstrap: any;
+declare let bootstrap: any;
 
 @Component({
   selector: 'app-filter',
@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
   errorMessage!: string;
   tooltipTriggerList: any[] = [];
 
-  @Input() enableEstadoFilter: boolean = true; // Asegúrate de que el valor por defecto es true para que aparezca inicialmente
+  @Input() enableEstadoFilter = true; // Asegúrate de que el valor por defecto es true para que aparezca inicialmente
   filterForm!: FormGroup;
   showOptions = false; //Para manejar la visualización del dropdown de opciones
   showOptionsCategory = false;
@@ -38,8 +38,8 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
       startDate: '', endDate: ''
     };
 
-  selectedStatus: string = 'Seleccionar estado:';
-  selectedCategory: string = 'Seleccionar categoría:';
+  selectedStatus = 'Seleccionar estado:';
+  selectedCategory = 'Seleccionar categoría:';
   constructor(
     private fb: FormBuilder, private stateService: StateService,
     private filterstate: FilterService, private sharedfilters: ShareFilters,

@@ -1,39 +1,39 @@
-# Usamos la imagen oficial de Node.js v20
+# Etapa 1: Construcción
 FROM node:20-alpine as builder
 
-# Establece el directorio de trabajo dentro del contenedor
+# se establece el directorio de trabajo
 WORKDIR /app
 
 # Instalar Angular CLI globalmente
 RUN npm install -g @angular/cli
 
-# Copia los archivos de configuración y dependencias al contenedor
+# Copiar archivos necesarios
 COPY package.json package-lock.json ./
 
-# Instala las dependencias con --legacy-peer-deps para evitar conflictos
-RUN npm ci --legacy-peer-deps
+# se limpia el caché de npm y luego instala las dependencias
+RUN npm cache clean --force && npm install --legacy-peer-deps
 
-# Copiar el resto del proyecto al contenedor
+# Copiar el resto del proyecto
 COPY . .
 
-# Construimos la app para producción con SSR
+# se construye la aplicación para producción con SSR
 RUN npm run build:ssr
 
-# Etapa de producción
+# Etapa 2: Producción
 FROM node:20-alpine
 
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copiamos los archivos necesarios de la etapa de construcción
+# Copiar los archivos necesarios desde la etapa de construcción
 COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/package.json /app/package.json
 
-# Instalamos solo las dependencias de producción
-RUN npm ci --only=production --legacy-peer-deps
+# se limpia el caché de npm y luego se instala solo las dependencias de producción
+RUN npm cache clean --force && npm install --only=production --legacy-peer-deps
 
-# Exponer el puerto que usará la aplicación
+# se expone el puerto
 EXPOSE 4000
 
 # Comando para iniciar el servidor SSR
 CMD ["npm", "run", "serve:ssr"]
-

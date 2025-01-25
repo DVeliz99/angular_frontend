@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TotalGraphicComponent } from '../../total-graphic/total-graphic.component';
 import { CommonModule } from '@angular/common';
 import { ProfileDataService } from '../../../services/user_data_service/profile.service';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.css'
 })
-export class StatsComponent {
+export class StatsComponent implements OnInit, OnDestroy {
   /*Propiedades */
   userData: any;
   userDataSubscription!: Subscription; // Para manejar la suscripción

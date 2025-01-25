@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment';
@@ -15,7 +15,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { MessageModalService } from '../../services/message_modal_services/message_modal.service';
 import { modalMessageInterface } from '../../modal_interface/modalMessage_interface';
 
-declare var bootstrap: any;
+declare let bootstrap: any;
 
 @Component({
     selector: 'app-form-task-manager',
@@ -23,7 +23,7 @@ declare var bootstrap: any;
     templateUrl: './form-task-manager.component.html',
     styleUrl: './form-task-manager.component.css'
 })
-export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestroy {
+export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
 
     /*Propiedades */
     user_id!: any;
@@ -47,7 +47,7 @@ export class FormTaskManagerComponent implements OnInit, AfterViewInit, OnDestro
     errorMessage!: string;
     successMessageCreate!: string;
     errorMessageCreate!: string;
-    readonlyMode: boolean = false;
+    readonlyMode = false;
     // Orden deseado
     desiredOrder = ['Pendiente', 'Completada', 'Expirada'];
     nofilters = true;

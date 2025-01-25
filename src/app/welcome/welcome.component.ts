@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormTaskManagerComponent } from '../form-task-manager/form-task-manager.component';
 import { Subscription } from 'rxjs';
 import { DataLoginService } from '../../services/user_data_service/data_login.service';
@@ -10,7 +10,7 @@ import { DataLoginService } from '../../services/user_data_service/data_login.se
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit, OnDestroy {
   username!:string;
   userLoggedInDataSubscription!:Subscription;
 

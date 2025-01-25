@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   fadeIn = 'fadeIn';
   parent_userDataSubscription!: Subscription;
   apiUrl = environment.apiUrl;
-  loginDate: string = '';
+  loginDate = '';
 
 
 

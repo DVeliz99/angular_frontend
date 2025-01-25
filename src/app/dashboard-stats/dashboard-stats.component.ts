@@ -55,7 +55,7 @@ export class DashboardStatsComponent implements OnInit, OnDestroy {
     const { startDate, endDate, categoria } = filterData;
     const userId = this.obtenerUserId();
 
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('start_date', startDate)
       .set('end_date', endDate)
       .set('category', categoria)

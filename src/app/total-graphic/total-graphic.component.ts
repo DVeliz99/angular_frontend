@@ -5,7 +5,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { FilteredDataSharing } from '../../services/user_filtered_info/filter_data-sharing.service';
 import { ProfileDataService } from '../../services/user_data_service/profile.service';
 import { Subscription } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-total-graphic',
@@ -14,7 +14,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './total-graphic.component.html',
   styleUrls: ['./total-graphic.component.css']
 })
-export class TotalGraphicComponent implements OnInit, OnDestroy {
+export class TotalGraphicComponent implements OnInit, OnDestroy, AfterViewInit {
   data: any;
   options: any;
   ProfileData: any;
@@ -25,10 +25,10 @@ export class TotalGraphicComponent implements OnInit, OnDestroy {
   private dashboardsubscription: Subscription | undefined;
   private profilesubscription: Subscription | undefined;
 
-  tareasPendientes: number = 0;
-  tareasCompletadas: number = 0;
-  tareasExpiradas: number = 0;
-  hasData: boolean = true;
+  tareasPendientes = 0;
+  tareasCompletadas = 0;
+  tareasExpiradas = 0;
+  hasData = true;
 
   constructor(private router: Router, private dashboardDataService: FilteredDataSharing,
     private profileDataService: ProfileDataService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {

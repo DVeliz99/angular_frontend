@@ -14,14 +14,14 @@ import { Subscription } from 'rxjs';
 export class UserBasicInfoComponent implements OnInit, OnDestroy {
 
  /*Propiedades */
-  startDate: string = '';
-  endDate: string = '';
-  category: string = '';
+  startDate = '';
+  endDate = '';
+  category = '';
   filters: any;
   SharedFilterData: any;
   shareFilteredDataSubscription!: Subscription;
   getFiltersSubscription!:Subscription;
-  noCategory: string = 'Ninguna categoría seleccionada';
+  noCategory = 'Ninguna categoría seleccionada';
 
   constructor(private filteredData: FilteredDataSharing, private filter: ShareFilters) { }
 

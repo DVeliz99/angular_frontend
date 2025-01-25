@@ -16,11 +16,11 @@ import { ShareFiltersTasks } from '../../services/filters_services/share_filters
   animations: [trigger('fadeInOut', [state('void', style({ opacity: 0, height: '0px', overflow: 'hidden', padding: '0px' })), state('*', style({ opacity: 1, height: '*', overflow: 'hidden', padding: '*' })), transition('void => *', [animate('300ms ease-in')]), transition('* => void', [animate('300ms ease-out')])])],
   styleUrl: './tasks.component.css'
 })
-export class TasksComponent {
+export class TasksComponent implements OnInit {
   filter: any;
 
-  noStatus:string = 'Ningún estado seleccionado';
-  noCategory:string= 'Ninguna categoría seleccionada';
+  noStatus = 'Ningún estado seleccionado';
+  noCategory= 'Ninguna categoría seleccionada';
 
 
   constructor(private fb: FormBuilder, private SharedFiltersTasks: ShareFiltersTasks) { }

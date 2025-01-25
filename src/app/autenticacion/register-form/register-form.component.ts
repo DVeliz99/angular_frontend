@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { environment } from '../../../environment/environment';
@@ -20,20 +20,20 @@ export interface ResponseMessage {
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css'
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit {
   /*Propiedades */
   responseMessages: ResponseMessage | null = null;
 
   //Para manejar los campos de los formularios de forma jerarquica
   registerForm!: FormGroup;
-  imageErrorMessage: string = '';
+  imageErrorMessage = '';
   //Angular no permite manipular el valor de un campo tipo file
   selectedImage: File | null = null;
 
   responseSuccessMessage!: string;
   responseErrorMessage!: string;
   responseStatus!: any;
-  hidePassword: boolean = true;
+  hidePassword = true;
 
 
   constructor(private fb: FormBuilder, private http: HttpClient, private dialog: MatDialog) { }

@@ -13,4 +13,4 @@ const bootstrap = () => bootstrapApplication(AppComponent, config);
 
 export default bootstrap;
 
-
+export class AppServerModule {}

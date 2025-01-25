@@ -41,7 +41,7 @@ export class AuthService {
   private inactivityTimer: any;
   private inactivityTimeLimit: number = 1800 * 1000; // 30 minutos en milisegundos
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private router: Router,
+  constructor(@Inject(PLATFORM_ID) private platformId: object, private http: HttpClient, private router: Router,
     private UserLoggedInData: DataLoginService, private profileDatService: ProfileDataService, private expireTasks: ExpireTasksService, private modalInfo: MatDialog) {
 
 
