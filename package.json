@@ -7,9 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:ssr": "ng build && ng run task_manager:server",
-    "serve:ssr": "node dist/task_manager/server/main.js",
-    "serve:ssr:task_manager": "node dist/task_manager/server/server.mjs",
+    "build:ssr": "ng build --configuration production && ng run task-manager:server:production",
+    "serve:ssr": "node dist/task-manager/server/main.427d4a3b4414d8a9.js",
+    "serve:ssr:task_manager": "node dist/task-manager/server/server.mjs",
     "lint": "ng lint"
   },
   "private": true,
