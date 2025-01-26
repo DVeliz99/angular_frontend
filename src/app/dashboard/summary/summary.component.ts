@@ -120,6 +120,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
             this.changePhotoProfile(this.newAvatar);
           }
         };
+        img.src = URL.createObjectURL(file);
       }
     }
 
