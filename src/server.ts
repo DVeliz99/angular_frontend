@@ -8,6 +8,8 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
@@ -41,13 +43,23 @@ app.use(
  * Handle all other requests by rendering the Angular application.
  */
 app.use('/**', (req, res, next) => {
+  console.log("Request received:", req.url); // Depuración de la URL de la solicitud.
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
-    .catch(next);
+    .then((response) => {
+      if (response) {
+        console.log("Angular SSR response:", response); // Depuración de la respuesta SSR.
+        writeResponseToNodeResponse(response, res);
+      } else {
+        next();
+      }
+    })
+    .catch((err) => {
+      console.error("Error handling SSR request:", err); // Depuración del error.
+      next(err);
+    });
 });
+
 
 /**
  * Start the server if this module is the main entry point.
@@ -58,7 +70,15 @@ if (isMainModule(import.meta.url)) {
   app.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
+}else {
+  console.log("El servidor no se está ejecutando como el módulo principal.");
 }
+
+
+
+
+
+
 
 /**
  * The request handler used by the Angular CLI (dev-server and during build).
