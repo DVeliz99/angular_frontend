@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "clean": "rimraf dist && rimraf build",
     "build:ssr": "ng build --configuration production && ng run task-manager:server:production",
     "serve:ssr": "node dist/task-manager/server/main.427d4a3b4414d8a9.js",
     "serve:ssr:task_manager": "node dist/task-manager/server/server.mjs",
