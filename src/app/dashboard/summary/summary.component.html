@@ -7,8 +7,13 @@
                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                         <div class=" d-flex flex-column col-6  align-items-center mt-5">
                             <div class="my-4">
-                                <img id="avatar" *ngIf="userData && avatarUrl" [src]="avatarUrl" alt="Avatar"
-                                    class="m-0 object-fit-cover" style="height: 60px; width: 60px;" />
+                                <img 
+                                id="avatar" 
+                                *ngIf="userData && avatarUrl" 
+                                [src]="avatarUrl" 
+                                alt="Avatar"
+                                class="m-0 object-fit-cover" 
+                                style="max-height: 60px; max-width: 60px; height: auto; width: auto; border-radius: 50%;" />                              
                                 <div class="file-upload-wrapper">
                                     <!-- Acepta formatos en especifico-->
                                     <input type="file" class="form-control border border-black" id="newAvatar"

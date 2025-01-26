@@ -100,22 +100,33 @@ export class SummaryComponent implements OnInit, AfterViewInit {
     if (file) {
       // Validar que el archivo sea una imagen y tenga la extensión correcta
       // console.log(file);
-      const validTypes = ['image/jpeg', 'image/png', 'image/gif']; // Tipos MIME permitidos
+      const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']; // Tipos MIME permitidos
       if (!validTypes.includes(file.type)) {
         this.imageErrorMessage = 'Por favor, selecciona un archivo de imagen válido (JPG, JPEG, PNG, GIF).';
         this.showalert('error', 'Error', this.imageErrorMessage);
 
       } else {
-        this.imageErrorMessage = "";
-        // Si el archivo es válido, almacenarlo en la variable
-        this.newAvatar = file;
-        // console.log('Nombre de archivo', this.newAvatar);
-        //Llamado del metodo que cambiara la imagen
-        this.changePhotoProfile(this.newAvatar);
+        const img = new Image();
+        img.onload = () => {
+          if (img.width > 1000 || img.height > 800) {
+            this.imageErrorMessage = 'La imagen no debe ser mayor a 1000x700 píxeles.';
+            this.showalert('error', 'Error', this.imageErrorMessage);
+          } else {
+            this.imageErrorMessage = '';
+            // Si el archivo es válido, almacenarlo en la variable
+            // console.log('Nombre de archivo', this.newAvatar);
+            this.newAvatar = file;
+            //Llamado del metodo que cambiara la imagen
+            this.changePhotoProfile(this.newAvatar);
+          }
+        };
       }
     }
 
   }
+
+
+
 
   preprareDatatoSend(id: string, photo: File): FormData {
     const formData = new FormData();
