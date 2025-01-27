@@ -36,4 +36,4 @@ RUN npm cache clean --force && npm install --only=production --legacy-peer-deps
 EXPOSE 4000
 
 # Comando para iniciar el servidor SSR
-CMD ["npm", "run", "serve:ssr"]
+CMD ["npm", "run", "server:ssr"]
