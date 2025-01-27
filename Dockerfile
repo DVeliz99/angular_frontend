@@ -28,6 +28,8 @@ WORKDIR /app
 # Copiamos los archivos generados en la etapa de construcción
 COPY --from=builder /app/dist/task-manager/server /app/dist/task-manager/server
 
+# Copiamos package.json y package-lock.json a la etapa de producción
+COPY package.json package-lock.json ./
 
 # se limpia el caché de npm y luego se instala solo las dependencias de producción
 RUN npm cache clean --force && npm install --only=production --legacy-peer-deps
