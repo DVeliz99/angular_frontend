@@ -73,11 +73,25 @@ export class RegisterFormComponent implements OnInit {
         this.imageErrorMessage = 'Por favor, selecciona un archivo de imagen válido (JPG, JPEG, PNG, GIF).';
         this.registerForm.get('image')?.setErrors({ invalidFileType: true });
       } else {
-        this.imageErrorMessage = "";
 
-        // Si el archivo es válido, almacenarlo en la variable
-        this.selectedImage = file;
+        const img = new Image();
+        img.onload = () => {
+          if (img.width > 1000 || img.height > 800) {
+            this.imageErrorMessage = 'La imagen no debe ser mayor a 1000x700 píxeles.';
+            this.showErrorMessage(this.imageErrorMessage);
+          } else {
+            this.imageErrorMessage = '';
+            // Si el archivo es válido, almacenarlo en la variable
+            // console.log('Nombre de archivo', this.newAvatar);
+            this.imageErrorMessage = "";
+
+            // Si el archivo es válido, almacenarlo en la variable
+            this.selectedImage = file;
+          }
+        };
+        img.src = URL.createObjectURL(file);
       }
+
     }
   }
 
@@ -156,14 +170,14 @@ export class RegisterFormComponent implements OnInit {
 
   }
 
-    //Ocultar la contraseña 
+  //Ocultar la contraseña 
 
-    togglePasswordVisibility() {
-      this.hidePassword = false;
-      setTimeout(() => {
-        this.hidePassword = true;
-      }, 1000);
-    }
+  togglePasswordVisibility() {
+    this.hidePassword = false;
+    setTimeout(() => {
+      this.hidePassword = true;
+    }, 1000);
+  }
 
 }
 
