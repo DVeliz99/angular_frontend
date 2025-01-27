@@ -19,6 +19,7 @@ COPY . .
 # se construye la aplicación para producción con SSR
 RUN npm run build
 
+
 # Etapa 2: Producción
 FROM node:20-alpine
 

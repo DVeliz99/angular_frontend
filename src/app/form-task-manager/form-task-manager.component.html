@@ -1,5 +1,5 @@
 <div id="to_do" class=" d-flex justify-content-center align-items-center    ">
-  <div [formGroup]="taskForm" class="w-75 form-to_do mt-4 mb-2  border border-black rounded ">
+  <div [formGroup]="taskForm" class=" form-to_do mt-4 mb-2  border border-black rounded col-xl-9 col-11">
     <div class="form-group">
       <label for="taskName">Nombre de la Tarea</label>
       <input type="text" id="taskName" formControlName="name" class="form-control"
@@ -9,10 +9,11 @@
     <div class="form-group">
       <label for="taskCategory">Categoría de la Tarea</label>
       <input type="text" id="taskCategory" formControlName="category" class="form-control"
-        placeholder="Click parar seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
+        placeholder="Click seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
       <div *ngIf="isCategoryVisible && !nofilters" id="categories "
         class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative overflow-y-scroll "
         style="height: 38px;">
+        <div class="form-control" (click)="toggleVisibilityCategory()">Desliza hacia arriba para elegir.</div>
         <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
         <div *ngIf="!nofilters" class="position-absolute w-100 ">
           <div type="text" *ngFor="let category of categories"
@@ -30,10 +31,13 @@
       <input *ngIf="!isEditing ||isEditing ||(isEditing && restrictFilter)" id="taskStatus" type="text"
         class="form-control overflow-auto" formControlName="status" placeholder="Click parar seleccionar estado"
         readonly (click)="toggleVisibility() ">
+
+        
       <!-- Al crear tarea solo se muestra un estado == pendiente-->
       <div *ngIf="isVisible && !nofilters " id="status "
         class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative">
         <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
+      
         <div *ngIf="!nofilters" class="position-absolute w-100">
           <div type="text" *ngFor="let state of statusArray"
             class="text-decoration-none form-control border border-black d-block w-100 " [attr.data-value]="state"
