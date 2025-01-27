@@ -73,11 +73,13 @@ export class MobileNavbarComponent implements OnInit, OnDestroy {
   }
   /*Funciones  */
 
-  setActive(link: string, enableEstadoFilter: boolean) {
-    this.activeLink = link; // Asigna valor a la clase 'Active'
-    this.stateService.setCategoryFilterState(enableEstadoFilter);
+  // setActive(link: string, enableEstadoFilter: boolean) {
+  //   this.activeLink = link; // Asigna valor a la clase 'Active'
+  //   console.log('Valor de active',this.activeLink);
+    
+  //   this.stateService.setCategoryFilterState(enableEstadoFilter);
 
-  }
+  // }
 
   // Función para alternar la visibilidad de un elemento
   toggleVisibility(): void {

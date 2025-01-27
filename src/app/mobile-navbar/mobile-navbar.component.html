@@ -1,28 +1,28 @@
-<div class=" fixed-top w-100  h-auto m-0 p-0 position-fixed">
+<div class=" fixed-top   h-auto m-0 p-0 ">
     <nav class="mobile_navbar navbar  p-0 rounded-start ">
         <div class="container-fluid  p-0">
-            <ul class="navbar-nav w-100 d-flex flex-row justify-content-between">
-                <li class="nav-item ms-3 " (click)="setActive('profile',true)" [ngClass]="{'active': activeLink === 'profile'}">
+            <ul class="navbar-nav w-100 d-flex flex-row justify-content-between"> <!--  (click)="setActive('profile',true)" -->
+                <li class="nav-item  "[ngClass]="{'active': activeLink === 'profile'}">
                     <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/profile" >
                         <p>Perfil</p>
                         <img height="30" src="/nav_bar_icons/home.png" alt="img" class="object-fit-contain">
 
                     </a>
                 </li>
-                <li class="nav-item " (click)="setActive('dashboard',false)" [ngClass]="{'active': activeLink === 'dashboard'}">
-                    <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/dashboard" (click)="setActive('dashboard',false)" [ngClass]="{'active': activeLink === 'dashboard'}">
+                <li class="nav-item "  [ngClass]="{'active': activeLink === 'dashboard'}"> <!-- (click)="setActive('dashboard',false)"-->
+                    <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/dashboard" [ngClass]="{'active': activeLink === 'dashboard'}">
                         <p>Dashboard</p>
                         <img height="30" src="/nav_bar_icons/analisis.png" alt="img" class="object-fit-contain">
                     </a>
                 </li>
-                <li class=" nav-item " (click)="setActive('tasks',true)" [ngClass]="{'active': activeLink === 'tasks'}">
+                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'tasks'}"> <!-- (click)="setActive('tasks',true)"-->
                     <a class="d-flex flex-column align-content-center nav-link"  routerLink="/tasks" >
                         <p>Tareas</p>
                         <img height="30" src="/nav_bar_icons/tasks.png" alt="img" class="object-fit-contain">
                     </a>
                 </li>
 
-                <li class=" nav-item " (click)="setActive('to-do',true)" [ngClass]="{'active': activeLink === 'to-do'}">
+                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'to-do'}"> <!-- (click)="setActive('to-do',true)"-->
                     <a class="d-flex flex-column align-content-center nav-link"  routerLink="/to-do" >
                         <p>To-do</p>
                         <img height="30" src="/nav_bar_icons/to-do.png" alt="img" class="object-fit-contain">
@@ -44,7 +44,7 @@
 <div class="row row-flex-navbar w-100 m-0 p-0 position-fixed z-3">
 
     <nav class="  flexible-mobile-navbar  p-0  top-100 ">
-        <div class="m-0 w-100" *ngIf="isVisible" [@fadeInOut]>
+        <div class="m-0 w-100" *ngIf="isVisible" ><!--[@fadeInOut]-->
             <ul class="nav_links flexible-list list-unstyled  m-0 p-0 w-100 d-flex flex-column">
                 <li class="d-flex form-control flex-link"> <a class="text-decoration-none  m-0  w-100 text-center "
                     (click)="logout()">Cerrar sesión</a>
