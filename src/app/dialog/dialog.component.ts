@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { WarningDialogData } from '../../dialog/dialog_interface';
+import  type { WarningDialogData } from '../../dialog/dialog_interface';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
