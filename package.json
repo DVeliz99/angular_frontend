@@ -11,8 +11,7 @@
     "build-browser": "ng build --configuration production",
     "build-server": "ng run task-manager:server:production",
     "build:ssr": "ng build --configuration production && ng run task-manager:server:production",
-    "serve:ssr": "node dist/task-manager/server/main.427d4a3b4414d8a9.js",
-    "serve:ssr:task_manager": "node dist/task-manager/server/server.mjs",
+    "server:ssr": "node dist/task-manager/server/main.js",
     "lint": "ng lint"
   },
   "private": true,
