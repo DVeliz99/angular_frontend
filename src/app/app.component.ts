@@ -33,6 +33,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
   avatar!: any;
   messageModalSubscription!: Subscription;
 
+  //push to vercel
   constructor(
     private authService: AuthService, private router: Router, @Inject(PLATFORM_ID) private platformID: object,
     private cdRef: ChangeDetectorRef, private userDataProfile: ProfileDataService, private http: HttpClient,

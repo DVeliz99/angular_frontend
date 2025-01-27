@@ -91,7 +91,6 @@ export class RegisterFormComponent implements OnInit {
         };
         img.src = URL.createObjectURL(file);
       }
-
     }
   }
 
