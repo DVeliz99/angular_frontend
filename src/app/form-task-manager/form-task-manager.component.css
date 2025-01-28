@@ -49,3 +49,17 @@ label:hover {
     background-color: #A6AEBF;
 
 }
+
+.isMovil{
+    display: none;
+}
+
+
+
+/*para Moviles*/
+
+@media (max-width: 998px) {
+    .isMovil{
+        display: block;
+    }
+}

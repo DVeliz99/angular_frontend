@@ -13,7 +13,7 @@
       <div *ngIf="isCategoryVisible && !nofilters" id="categories "
         class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative overflow-y-scroll "
         style="height: 38px;">
-        <div class="form-control" (click)="toggleVisibilityCategory()">Desliza hacia arriba para elegir.</div>
+        <div class="form-control isMovil" (click)="toggleVisibilityCategory()">Desliza hacia arriba para elegir.</div>
         <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
         <div *ngIf="!nofilters" class="position-absolute w-100 ">
           <div type="text" *ngFor="let category of categories"
