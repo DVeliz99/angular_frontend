@@ -2,33 +2,34 @@
     <nav class="mobile_navbar navbar  p-0 rounded-start ">
         <div class="container-fluid  p-0">
             <ul class="navbar-nav w-100 d-flex flex-row justify-content-between"> <!--  (click)="setActive('profile',true)" -->
-                <li class="nav-item  "[ngClass]="{'active': activeLink === 'profile'}">
+                <li class="nav-item  "[ngClass]="{'active': activeLink === 'profile'}" (click)="setActive('profile')">
                     <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/profile" >
                         <p>Perfil</p>
                         <img height="30" src="/nav_bar_icons/home.png" alt="img" class="object-fit-contain">
 
                     </a>
                 </li>
-                <li class="nav-item "  [ngClass]="{'active': activeLink === 'dashboard'}"> <!-- (click)="setActive('dashboard',false)"-->
-                    <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/dashboard" [ngClass]="{'active': activeLink === 'dashboard'}">
+                <li class="nav-item "  [ngClass]="{'active': activeLink === 'dashboard'}"  (click)="setActive('dashboard')"> <!-- (click)="setActive('dashboard',false)"-->
+                    <a class=" d-flex flex-column align-content-center nav-link"  routerLink="/dashboard" [ngClass]="{'active': activeLink === 'dashboard'}"
+                   >
                         <p>Dashboard</p>
                         <img height="30" src="/nav_bar_icons/analisis.png" alt="img" class="object-fit-contain">
                     </a>
                 </li>
-                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'tasks'}"> <!-- (click)="setActive('tasks',true)"-->
+                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'tasks'}" (click)="setActive('tasks')"> <!-- (click)="setActive('tasks',true)"-->
                     <a class="d-flex flex-column align-content-center nav-link"  routerLink="/tasks" >
                         <p>Tareas</p>
                         <img height="30" src="/nav_bar_icons/tasks.png" alt="img" class="object-fit-contain">
                     </a>
                 </li>
 
-                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'to-do'}"> <!-- (click)="setActive('to-do',true)"-->
+                <li class=" nav-item "  [ngClass]="{'active': activeLink === 'to-do'}" (click)="setActive('to-do')"> <!-- (click)="setActive('to-do',true)"-->
                     <a class="d-flex flex-column align-content-center nav-link"  routerLink="/to-do" >
                         <p>To-do</p>
                         <img height="30" src="/nav_bar_icons/to-do.png" alt="img" class="object-fit-contain">
                     </a>
                 </li>
-                <li class="picture">
+                <li class="picture" [ngClass]="{'active': activeLink === 'picture'}" (click)="setActive('picture')" >
                     <div id="dropdown" class="d-flex  w-100 h-100  position-relative">
                         <a id="option" class="d-flex h-100 w-100 align-items-center p-3" (click)="toggleVisibility()">
                             <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar"  class="avatar-img rounded-circle "

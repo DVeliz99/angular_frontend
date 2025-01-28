@@ -4,6 +4,15 @@
 
 }
 
+.active{
+  background-color: #9ad8e5;
+  border-bottom: 2px solid blue;
+  border-right: 2px solid blue;
+  border-left: 2px solid  blue;
+  
+
+}
+
 .flexible-mobile-navbar {
   display: flex;
   margin-top: 87px;

@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { StateService } from '../state.service';
 import { FilterService } from '../../services/filters_services/getFilters.service';
 import { ShareFilters } from '../../services/filters_services/share_filters.service';
 import { Router } from '@angular/router';
@@ -22,12 +21,12 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
   /*Filtros Actualizados */
   categorias: any[] = [];
   estados: any[] = [];
-  noStatus!: string;
+
   noCategory!: string;
   errorMessage!: string;
   tooltipTriggerList: any[] = [];
 
-  @Input() enableEstadoFilter = true; // Asegúrate de que el valor por defecto es true para que aparezca inicialmente
+  enableEstadoFilter = false; // Asegúrate de que el valor por defecto es true para que aparezca inicialmente
   filterForm!: FormGroup;
   showOptions = false; //Para manejar la visualización del dropdown de opciones
   showOptionsCategory = false;
@@ -41,13 +40,16 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedStatus = 'Seleccionar estado:';
   selectedCategory = 'Seleccionar categoría:';
   constructor(
-    private fb: FormBuilder, private stateService: StateService,
+    private fb: FormBuilder, 
     private filterstate: FilterService, private sharedfilters: ShareFilters,
     private router: Router, private sharedfiltersTasks: ShareFiltersTasks,
     private errorDialog: MatDialog
   ) { }
 
   ngOnInit() {
+
+    console.log('Se ha inciado filter.component.ts');
+    
 
     this.cargarCategorias();
     this.cargarEstados();
@@ -65,23 +67,19 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
       this.selectedStatus = values.statusSelect;
       this.selectedCategory = values.category;
 
-      // console.log('Datos seleccionado por el usuario', this.selectedDates, this.selectedStatus, this.selectedCategory); // Para verificación
+       console.log('Datos seleccionado por el usuario', this.selectedDates, this.selectedStatus, this.selectedCategory); // Para verificación
     });
 
-    // Suscribirse al servicio que muestra remueve o muestra el filtro de estado
-    this.stateService.estadoFilterEnabled$.subscribe(state => {
-      this.enableEstadoFilter = state;
-      if (state) {
-        if (this.filterForm?.contains('dropdown')) {
-          this.filterForm.addControl('dropdown', this.fb.control(''));
 
-        }
-      } else {
-        if (this.filterForm?.contains('dropdown')) {
-          this.filterForm.removeControl('dropdown');
-        }
-      }
-    });
+    const path=this.router.url;
+    if(path!=='/dashboard'){
+      this.enableEstadoFilter = true;
+    }
+    console.log(path);
+    console.log(this.enableEstadoFilter);
+    
+    
+
 
   }
 
@@ -193,10 +191,10 @@ export class FilterComponent implements OnInit, AfterViewInit, OnDestroy {
     const currentPath = this.router.url;
     if (currentPath === '/dashboard') {
       this.sharedfilters.updateFilterData(filterData);
-      // console.log('Filtros enviados al ShareFilterService para el dashboard-stats');
+      console.log('Filtros enviados al ShareFilterService para el dashboard-stats');
     } else if (currentPath === '/tasks') {
       this.sharedfiltersTasks.updateFilterData(filterData);
-      // console.log('Filtros enviados al ShareFilterServiceTasks para el tasks');
+       console.log('Filtros enviados al ShareFilterServiceTasks para el tasks');
     }
 
   }

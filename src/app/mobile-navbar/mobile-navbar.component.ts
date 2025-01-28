@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StateService } from '../state.service';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/restriction_routes_services/auth.service';
 import { Inject } from '@angular/core';
@@ -19,7 +18,6 @@ export class MobileNavbarComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
     private authservice: AuthService,
-    private stateService: StateService,
     private userLoggedInService: DataLoginService) { }
 
   /*Propiedades */
@@ -73,13 +71,11 @@ export class MobileNavbarComponent implements OnInit, OnDestroy {
   }
   /*Funciones  */
 
-  // setActive(link: string, enableEstadoFilter: boolean) {
-  //   this.activeLink = link; // Asigna valor a la clase 'Active'
-  //   console.log('Valor de active',this.activeLink);
-    
-  //   this.stateService.setCategoryFilterState(enableEstadoFilter);
+  setActive(link: string) {
+    this.activeLink = link; //Asigna valor a la clase 'Active'
+    console.log('Valor de active', this.activeLink);
 
-  // }
+  }
 
   // Función para alternar la visibilidad de un elemento
   toggleVisibility(): void {

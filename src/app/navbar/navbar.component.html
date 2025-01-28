@@ -20,7 +20,7 @@
     <!-- Opciones del sidebar-->
     <ul class="nav  flex-column ">
 
-        <li class="nav-item" (click)="setActive('profile',true)" [ngClass]="{'active': activeLink === 'profile'}">
+        <li class="nav-item" (click)="setActive('profile')" [ngClass]="{'active': activeLink === 'profile'}">
             <!-- al darle click se indica a que elemento se le va a asignar la clase active -->
             <a class="nav-link fs-4 d-flex flex-column align-items-center" aria-current="page" routerLink="/profile"
                 routerLinkActive="active">
@@ -29,7 +29,7 @@
             </a>
         </li>
 
-        <li class="nav-item " (click)="setActive('dashboard',false)" [ngClass]="{'active': activeLink === 'dashboard'}">
+        <li class="nav-item " (click)="setActive('dashboard')" [ngClass]="{'active': activeLink === 'dashboard'}">
             <a class="nav-link fs-4 d-flex flex-column justify-content-center " routerLink="/dashboard"
                 routerLinkActive="active">
                 <p class="d-flex justify-content-center">Dashboard</p>
@@ -37,14 +37,14 @@
             </a>
         </li>
 
-        <li class="nav-item" (click)="setActive('tasks',true)" [ngClass]="{'active': activeLink === 'tasks'}">
+        <li class="nav-item" (click)="setActive('tasks')" [ngClass]="{'active': activeLink === 'tasks'}">
             <a class="nav-link fs-4 d-flex flex-column justify-content-center" routerLink="/tasks">
                 <p class="d-flex justify-content-center">Tareas</p>
                 <img height="30" src="/nav_bar_icons/tasks.png" alt="img" class="object-fit-contain">
             </a>
         </li>
 
-        <li class="nav-item" (click)="setActive('to-do',true)" [ngClass]="{'active': activeLink === 'to-do'}">
+        <li class="nav-item" (click)="setActive('to-do')" [ngClass]="{'active': activeLink === 'to-do'}">
             <a class="nav-link fs-4 d-flex flex-column justify-content-center" routerLinkActive="active"
                 routerLink="/to-do">
                 <p class="d-flex justify-content-center">To-do</p>

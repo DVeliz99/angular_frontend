@@ -1,7 +1,7 @@
 <!-- Formulario de filtros-->
 
 
-  <div [formGroup]="dateRangeForm" (ngSubmit)="aplicarFiltros()" class="mb-3 mt-2 col-10  m-auto">
+  <form [formGroup]="dateRangeForm" (ngSubmit)="aplicarFiltros()" class="mb-3 mt-2 col-10  m-auto">
 
     <label for="startDate">Fecha seleccionada de Inicio:</label>
     <input type="date" id="startDate" placeholder="Click para seleccionar fecha de inicio" formControlName="startDate"
@@ -52,4 +52,4 @@
     </div>
 
 
-  </div>
+  </form>

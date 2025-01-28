@@ -3,7 +3,6 @@ import { Output } from '@angular/core';
 import { EventEmitter } from 'node:stream';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { StateService } from '../state.service';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/restriction_routes_services/auth.service';
 import { Router } from '@angular/router';
@@ -38,7 +37,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //Variable para controlar visibilidad de sidebar 
   isVisible = false; // Inicialmente visible
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object, private stateService: StateService,
+  constructor(@Inject(PLATFORM_ID) private platformId: object,
     private authservice: AuthService, private router: Router, private userLoggedInService: DataLoginService) { }
 
   isAuthenticated = false;
@@ -99,9 +98,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   /*Funciones de habilitacion */
 
-  setActive(link: string, enableEstadoFilter: boolean) {
+  setActive(link: string) {
     this.activeLink = link; // Asigna valor a la clase 'Active'
-    this.stateService.setCategoryFilterState(enableEstadoFilter);
+
 
   }
 

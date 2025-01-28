@@ -3,7 +3,6 @@ import { UserBasicInfoComponent } from './user-basic-info/user-basic-info.compon
 import { RecentTasksComponent } from '../recent-tasks/recent-tasks.component';
 import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { FilterComponent } from '../filter/filter.component';
-import { StateService } from '../state.service';
 import { ShareFilters } from '../../services/filters_services/share_filters.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environment/environment';
@@ -25,26 +24,23 @@ export class DashboardStatsComponent implements OnInit, OnDestroy {
   showCategoryFilter = true;
   filter!: any;
   filteredData!: any;
-  private dashboardApi_1 = `${environment.apiUrl}dashboard/dashboard/`; // URL de la API
+  private dashboardApi_1 = `${environment.apiUrl}dashboard/dashboard`; // URL de la API
   stateSubscription!: Subscription;
   getFiltersSubscription!: Subscription;
   getFilteredDataSubscription!: Subscription;
 
 
-  constructor(private stateService: StateService,
+  constructor(
     private FilterParameter: ShareFilters, private http: HttpClient
     , private getFilteredData: FilteredDataSharing) { }
 
   ngOnInit() {
-    this.stateSubscription = this.stateService.estadoFilterEnabled$.subscribe(state => {
-      this.showCategoryFilter = state;
-    });
-
+   
     this.getFiltersSubscription = this.FilterParameter.currentFilterData.subscribe(filterData => {
       if (filterData) {
-        // console.log('Filtros recibidos en Dashboard-Starts:', filterData);
+        console.log('Filtros recibidos en Dashboard-Starts:', filterData);
         this.ejecutarFiltro(filterData); // Ejecutar el filtro automáticamente cuando se reciban los datos
-        // console.log('El metodo ejecutarFiltro se ha ejecutado en Dashboard-Starts');
+        console.log('El metodo ejecutarFiltro se ha ejecutado en Dashboard-Starts');
 
       }
     });
