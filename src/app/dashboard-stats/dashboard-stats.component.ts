@@ -10,12 +10,14 @@ import { environment } from '../../environment/environment';
 import { FilteredDataSharing } from '../../services/user_filtered_info/filter_data-sharing.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { SummaryComponent } from '../dashboard/summary/summary.component';
+import { StatsComponent } from '../dashboard/stats/stats.component';
 
 //En ngOnInit() empieza a ejecutar lo del componente automaticamente
 
 @Component({
   selector: 'app-dashboard-stats',
-  imports: [RecentTasksComponent, UserBasicInfoComponent, DynamicChartComponent, FilterComponent, CommonModule],
+  imports: [RecentTasksComponent, UserBasicInfoComponent, DynamicChartComponent, FilterComponent, CommonModule ],
   templateUrl: './dashboard-stats.component.html',
   styleUrl: './dashboard-stats.component.css'
 })

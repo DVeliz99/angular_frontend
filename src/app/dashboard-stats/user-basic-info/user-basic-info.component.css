@@ -10,11 +10,11 @@
 @media (max-width: 767px) {
 
   .card {
-    font-size: small;
+    font-size: medium;
   }
 
   .card-title {
-    font-size: large;
+    font-size: medium;
 
   }
 }

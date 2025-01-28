@@ -1,20 +1,10 @@
-<div class="float-start col-xl-9 col-lg-9 col-md-12 col-sm-12 h-auto">
+<div class="float-start col-12 col-md-12 col-lg-9 col-xl-9  dashboard  overflow-y-scroll">
 
- <div class="m-3">
+
     <app-filter [enableEstadoFilter]="showCategoryFilter"></app-filter>
-
-
-   
-    <app-user-basic-info></app-user-basic-info> <!-- row compartida-->
-
-
-    <app-dynamic-chart></app-dynamic-chart> <!-- row compartida-->
-
-
-
+    <app-user-basic-info></app-user-basic-info>
+    <app-dynamic-chart></app-dynamic-chart>
     <h2 class="text-center">Últimas tareas según el filtro seleccionado:</h2>
-
     <app-recent-tasks></app-recent-tasks>
- </div>
 
 </div>

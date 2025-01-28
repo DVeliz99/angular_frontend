@@ -1,18 +1,20 @@
 <!-- Formulario de filtros-->
 
-<form [formGroup]="dateRangeForm"  (ngSubmit)="aplicarFiltros()" class="mb-3 ">
 
-  <div class="form-group">
+  <div [formGroup]="dateRangeForm" (ngSubmit)="aplicarFiltros()" class="mb-3 mt-2 col-10  m-auto">
+
     <label for="startDate">Fecha seleccionada de Inicio:</label>
-    <input type="date" id="startDate" formControlName="startDate" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="endDate">Fecha seleccionada de Fin:</label>
-    <input type="date" id="endDate" formControlName="endDate" class="form-control">
-  </div>
+    <input type="date" id="startDate" placeholder="Click para seleccionar fecha de inicio" formControlName="startDate"
+      class="form-control">
 
-  <div class="form-group mt-3 mb-3">
-    <div id="dropdown" class="d-flex w-100 h-100 flex-column " *ngIf="enableEstadoFilter">
+
+    <label for="endDate">Fecha seleccionada de entrega:</label>
+    <input type="date" id="endDate" placeholder="Click para seleccionar fecha de entrega" formControlName="endDate"
+      class="form-control">
+
+
+
+    <div id="dropdown" class="d-flex w-100 h-100 flex-column mt-2 " *ngIf="enableEstadoFilter">
       <input type="button" id="select" class="form-control" [value]="selectedStatus" (click)="toggleOptions('status')"
         (click)="NoneOptionSelected(selectedStatus,'status')">
       <div id="hidden-options" class="top-100 w-100 h-50 d-flex flex-column align-items-stretch mt-1"
@@ -23,31 +25,31 @@
 
       </div>
     </div>
-  </div>
 
-  <div id="category" class="d-flex w-100 h-100 flex-column">
-    <input type="button" id="select-category" class="form-control" [value]="selectedCategory"
-      (click)="toggleOptions('category')" (click)="NoneOptionSelected(selectedCategory,'category')">
+    <div id="category" class="d-flex w-100  flex-column mt-2">
+      <input type="button" id="select-category" class="form-control" [value]="selectedCategory"
+        (click)="toggleOptions('category')" (click)="NoneOptionSelected(selectedCategory,'category')">
 
-    <!-- NgFor para recorrer todo tipo de categoría asociado con el id el usuario activo en la sesión-->
-    <div class="position-relative overflow-y-scroll">
-      <div id="hidden-options-category" class="  w-100" *ngIf="showOptionsCategory" style="height: 38px;">
-        <!-- NgFor para recorrer todas las categorías obtenidas--->
-        <input type="button" class="form-control mt-1 w-100" *ngFor="let cat of categorias" [value]="cat.category"
-          (click)="selectOption(cat.category, 'category')" style="height: 36px;">
+      <!-- NgFor para recorrer todo tipo de categoría asociado con el id el usuario activo en la sesión-->
+      <div class="position-relative overflow-y-scroll">
+        <div id="hidden-options-category" class="  w-100" *ngIf="showOptionsCategory" style="height: 38px;">
+          <!-- NgFor para recorrer todas las categorías obtenidas--->
+          <input type="button" class="form-control mt-1 w-100" *ngFor="let cat of categorias" [value]="cat.category"
+            (click)="selectOption(cat.category, 'category')" style="height: 36px;">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div>
-    <div class="d-flex justify-content-center button col-6 float-start">
-      <a type="button" class="btn  mt-3 reset-button" data-bs-toggle="tooltip" data-bs-placement="top"
-        title="Haz clic para reiniciar los filtros"><img src="/other_icons/reset_icon.png" alt="reset_filters"
-          height="30" (click)="onReset()">
+
+    <div class="d-flex justify-content-center button col-6 float-start mt-2">
+      <a type="button" class="btn   reset-button " data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Haz clic para reiniciar los filtros">
+        <img src="/other_icons/reset_icon.png" alt="reset_filters" height="30" (click)="onReset()">
       </a>
     </div>
-    <div class="d-flex justify-content-center button col-6 float-start">
-      <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
+    <div class="d-flex justify-content-center button col-6 float-start mt-2">
+      <button type="submit" class="btn btn-primary">Filtrar</button>
     </div>
+
+
   </div>
-</form>
