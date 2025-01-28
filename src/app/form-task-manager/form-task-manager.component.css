@@ -50,7 +50,7 @@ label:hover {
 
 }
 
-.isMovil{
+.isMovil {
     display: none;
 }
 
@@ -59,7 +59,14 @@ label:hover {
 /*para Moviles*/
 
 @media (max-width: 998px) {
-    .isMovil{
+    .isMovil {
         display: block;
     }
+
+    input::placeholder {
+        color: rgb(38, 34, 34);
+        opacity: 1;
+        /* Con esto nos aseguramos que el placeholder sea totalmente visible en produccion */
+    }
+    
 }
