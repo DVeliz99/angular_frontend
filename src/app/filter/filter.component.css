@@ -2,3 +2,12 @@
     background-color: #89c4ff;
 
 }
+
+
+/*para Moviles*/
+
+@media (max-width: 998px) {
+    .isMovil{
+        display: block;
+    }
+}
