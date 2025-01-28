@@ -34,6 +34,7 @@
       <div class="position-relative overflow-y-scroll">
         <div id="hidden-options-category" class="  w-100" *ngIf="showOptionsCategory" style="height: 38px;">
           <!-- NgFor para recorrer todas las categorías obtenidas--->
+          <div class="form-control text-center" (click)="toggleOptions('category')">Desliza hacia arriba para elegir</div>
           <input type="button" class="form-control mt-1 w-100" *ngFor="let cat of categorias" [value]="cat.category"
             (click)="selectOption(cat.category, 'category')" style="height: 36px;">
         </div>

@@ -9,6 +9,8 @@
   border-bottom: 2px solid blue;
   border-right: 2px solid blue;
   border-left: 2px solid  blue;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   
 
 }
@@ -22,14 +24,12 @@
 
 }
 
-/* .nav-item{
-  max-width: 20px;
-} */
 
-/* .nav-item a {
+
+.nav-item a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-} */
+}
 
 picture {
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
@@ -75,7 +75,7 @@ picture {
 }
 
 .nav-item a:hover {
-  /* transform: scale(1.1); */
+   transform: scale(1.1); 
   background-color: #89c4ff;
   border-left: 2px solid black;
   border-bottom: 2px solid black;
