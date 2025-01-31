@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="taskCategory">Categoría de la Tarea</label>
       <input type="text" id="taskCategory" formControlName="category" class="form-control"
-        placeholder="Click seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
+        placeholder="Click para seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
       <div *ngIf="isCategoryVisible && !nofilters" id="categories "
         class="form-control list-unstyled border border-black m-0 p-0  border border-black position-relative overflow-y-scroll "
         style="height: 38px;">
