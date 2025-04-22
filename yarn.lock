@@ -1308,6 +1308,13 @@
   resolved "https://registry.npmjs.org/@inquirer/type/-/type-3.0.2.tgz"
   integrity sha512-ZhQ4TvhwHZF+lGhQ2O/rsjo80XoZR5/5qhOY3t6FJuX5XBg5Be8YzYTvaUGJnc12AUGI2nr4QSUE4PhKSigx7g==
 
+"@iplab/ngx-file-upload@^19.0.3":
+  version "19.0.3"
+  resolved "https://registry.npmjs.org/@iplab/ngx-file-upload/-/ngx-file-upload-19.0.3.tgz"
+  integrity sha512-PXQroFbMrQwg69b/j6Im9R8DkLz15YxiA0ATlFpOTPRtDhAWQMIRNdxbcqRLmBLdPvrsXpH/gN30f0GyC1k/fw==
+  dependencies:
+    tslib "^2.3.0"
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"
@@ -3727,6 +3734,11 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
   integrity sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==
+
+froala-editor@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/froala-editor/-/froala-editor-4.4.0.tgz"
+  integrity sha512-ozdmOPkXeH3O2rlqbK9lrQCvM4HLpZ9idgq7myTdQ+yYvL9+2Kzdn4q3ALENo0jbj7IzCkZ0MN06959Ru4xVcw==
 
 fs-extra@^8.1.0:
   version "8.1.0"

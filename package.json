@@ -3,16 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "npm run build-browser && npm run build-server",
+    "start": "http-server dist/frontend -p $PORT",
+    "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "clean": "rimraf dist && rimraf build",
-    "build-browser": "ng build --configuration production",
-    "build-server": "ng run task-manager:server:production",
-    "build:ssr": "ng build --configuration production && ng run task-manager:server:production",
-    "server:ssr": "node dist/task-manager/server/main.js",
-    "lint": "ng lint"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +24,7 @@
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.2",
     "@fortawesome/fontawesome-free": "^6.7.1",
+    "@iplab/ngx-file-upload": "^19.0.3",
     "@nguniversal/express-engine": "7.0.2",
     "@popperjs/core": "^2.11.8",
     "@swimlane/ngx-charts": "^21.1.2",
@@ -36,6 +32,7 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.7",
     "express": "^4.18.2",
+    "froala-editor": "^4.4.0",
     "ng-apexcharts": "^1.15.0",
     "ng-charts": "^1.0.0-alpha",
     "ng2-charts": "^7.0.0",

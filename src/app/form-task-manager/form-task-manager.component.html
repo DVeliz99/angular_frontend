@@ -8,6 +8,7 @@
 
     <div class="form-group">
       <label for="taskCategory">Categoría de la Tarea</label>
+     
       <input type="text" id="taskCategory" formControlName="category" class="form-control"
         placeholder="Click para seleccionar categoría" readonly (click)="toggleVisibilityCategory()">
       <div *ngIf="isCategoryVisible && !nofilters" id="categories "
@@ -15,10 +16,10 @@
         style="height: 38px;">
         <div class="form-control isMovil" (click)="toggleVisibilityCategory()">Desliza hacia arriba para elegir.</div>
         <!-- attr.data-value=> valor de estado en Angular, asigna atributo-->
-        <div *ngIf="!nofilters" class="position-absolute w-100 ">
-          <div type="text" *ngFor="let category of categories"
+        <div *ngIf="!nofilters"  class="position-absolute w-100 ">
+          <div type="text" *ngFor="let category of categories" 
             class="text-decoration-none form-control border border-black d-block w-100  " [attr.data-value]="category"
-            (click)="selectCategory(category)" (click)="toggleVisibilityCategory()" style="height: 38px;">
+            (click)="selectCategory(category)" (click)="toggleVisibilityCategory()" style="height: 38px;" >
             {{category}}
           </div>
         </div>
